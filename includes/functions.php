@@ -12,7 +12,7 @@ function getRandomString($n)
     }
     for ($i = 0; $i < $n; $i++) {
         $index = rand(0, strlen($characters) - 1);
-        if (!$checked) {
+        if ($checked) {
             if (str_contains($randomString, $index)) {
                 return;
             } else {
