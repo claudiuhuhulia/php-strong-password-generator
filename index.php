@@ -1,6 +1,6 @@
 <?php
 
-$user_length = $_GET['length'];
+$user_length = $_GET['length'] ?? '';
 
 function getRandomString($n)
 {
@@ -15,10 +15,7 @@ function getRandomString($n)
     return $randomString;
 }
 
-
-
 $random_password = getRandomString($user_length);
-
 
 ?>
 
@@ -37,12 +34,14 @@ $random_password = getRandomString($user_length);
 
     <div class="container">
         <header>
-            <?php if ($user_length) : ?>
-
-                <div class="alert alert-success mt-3">
-                    La password generata è "<strong> <?= $random_password ?></strong>"
-                </div>
+            <?php if (isset($user_length)) : ?>
+                <?php if ($user_length) : ?>
+                    <div class="alert alert-success mt-3">
+                        La password generata è "<strong> <?= $random_password ?></strong>"
+                    </div>
+                <?php endif ?>
             <?php endif ?>
+
         </header>
 
         <h1 class="text-center mb-5">STRONG PASSWORD GENERETOR</h1>
