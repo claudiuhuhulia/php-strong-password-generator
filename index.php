@@ -2,18 +2,7 @@
 
 $user_length = $_GET['length'] ?? '';
 
-function getRandomString($n)
-{
-    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.,-_!?^|@#%$£=';
-    $randomString = '';
-
-    for ($i = 0; $i < $n; $i++) {
-        $index = rand(0, strlen($characters) - 1);
-        $randomString .= $characters[$index];
-    }
-
-    return $randomString;
-}
+include('./includes/functions.php');
 
 $random_password = getRandomString($user_length);
 
