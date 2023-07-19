@@ -17,6 +17,13 @@ function getRandomString($n)
 
 $random_password = getRandomString($user_length);
 
+if ($user_length) {
+    session_start();
+    $_SESSION['random_password'] = $random_password;
+    header('location: password.php');
+}
+
+
 ?>
 
 
@@ -33,16 +40,7 @@ $random_password = getRandomString($user_length);
 <body>
 
     <div class="container">
-        <header>
-            <?php if (isset($user_length)) : ?>
-                <?php if ($user_length) : ?>
-                    <div class="alert alert-success mt-3">
-                        La password generata è "<strong> <?= $random_password ?></strong>"
-                    </div>
-                <?php endif ?>
-            <?php endif ?>
 
-        </header>
 
         <h1 class="text-center mb-5">STRONG PASSWORD GENERETOR</h1>
         <form action="#">
